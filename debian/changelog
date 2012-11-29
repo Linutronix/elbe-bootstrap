@@ -1,0 +1,6 @@
+testrd (0.5) stable; urgency=low
+
+  * Initial Debian Packaging
+  
+ -- Torben Hohn <torbenh@linutronix.de>  Thu, 29 Nov 2012 14:00 +0100
+

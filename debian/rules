@@ -1,0 +1,69 @@
+#! /usr/bin/make -f
+
+ARCH=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
+VERSION=$(shell LC_ALL=C dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
+DATE=$(shell echo $(VERSION) | cut -d '.' -f 1)
+SUITE=$(shell LC_ALL=C dpkg-parsechangelog | grep ^Distribution: | cut -d ' ' -f 2)
+ifeq (${SUITE},UNRELEASED)
+USE_UDEBS_FROM=unstable
+TRANSSTATUS=
+BOOTMENU_BEEP=n
+else
+USE_UDEBS_FROM=squeeze
+USE_PROPOSED_UPDATES=1
+TRANSSTATUS=translation-status
+BOOTMENU_BEEP=y
+endif
+
+ARCHIVEDIR=debian/tmp/installer-$(ARCH)
+DESTDIR=$(ARCHIVEDIR)/$(DATE)
+IMAGEDIR=$(DESTDIR)/images
+TARNAME=debian-installer-images_$(VERSION)_$(ARCH).tar.gz
+
+
+ifeq (${ARCH},armel)
+TARGETS = build_versatile_netboot build_versatile_cdrom
+INITRD_NET = 
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+	$(MAKE) -C debian-installer/build reallyclean
+
+# Must run as root, so is not run as part of regular build.
+build-images:
+	$(MAKE) -C debian-installer/build $(TARGETS) \
+		USE_UDEBS_FROM=$(USE_UDEBS_FROM) BUILD_DATE=$(DATE) \
+		USE_PROPOSED_UPDATES=$(USE_PROPOSED_UPDATES) \
+		TRANSSTATUS=$(TRANSSTATUS) BOOTMENU_BEEP=$(BOOTMENU_BEEP)
+
+
+	
+build:
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	
+	debian/rules build-images
+	mkdir -p $(CURDIR)/debian/tmp/opt/elbe/initrd/
+	cp $(INITRD_NET) $(CURDIR)/debian/tmp/opt/elbe/initrd/initrd.gz
+	cp $(INITRD_CD) $(CURDIR)/debian/tmp/opt/elbe/initrd/initrd-cdrom.gz
+	cp $(KERNEL) $(CURDIR)/debian/tmp/opt/elbe/initrd/vmlinuz
+
+binary-arch: install  
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	
+	dh_fixperms
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-indep:
+
+binary: binary-indep binary-arch 
+.PHONY: build build-images clean binary-indep binary-arch binary install 
