@@ -43,7 +43,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	dh_clean
-#	$(MAKE) -C debian-installer/build reallyclean
+	$(MAKE) -C debian-installer/build reallyclean
 
 # Must run as root, so is not run as part of regular build.
 build-images:
