@@ -1,0 +1,14 @@
+
+testrd
+------
+
+This source builds a kinitrd Package for ELBE.
+It needs to get built on squeeze and not cross.
+
+git submodule init
+git submodule update
+
+dpkg-buildpackage
+
+
+
