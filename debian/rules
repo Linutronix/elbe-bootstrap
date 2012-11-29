@@ -28,16 +28,22 @@ INITRD_CD = debian-installer/build/dest/versatile/cdrom/initrd.gz
 KERNEL = debian-installer/build/dest/versatile/netboot/vmlinuz-2.6.32-5-versatile
 endif
 ifeq (${ARCH},amd64)
-TARGETS = build_netboot build_cdrom
+TARGETS = build_netboot build_cdrom_isolinux
 INITRD_NET = debian-installer/build/dest/versatile/netboot/initrd.gz
 INITRD_CD = debian-installer/build/dest/versatile/cdrom/initrd.gz
 KERNEL = debian-installer/build/dest/versatile/netboot/vmlinuz-2.6.32-5-versatile
+endif
+ifeq (${ARCH},i386)
+TARGETS = build_netboot build_cdrom_isolinux
+INITRD_NET = debian-installer/build/dest/netboot/debian-installer/i386/initrd.gz
+INITRD_CD = debian-installer/build/dest/cdrom/initrd.gz
+KERNEL = debian-installer/build/dest/netboot/debian-installer/i386/linux
 endif
 clean:
 	dh_testdir
 	dh_testroot
 	dh_clean
-	$(MAKE) -C debian-installer/build reallyclean
+#	$(MAKE) -C debian-installer/build reallyclean
 
 # Must run as root, so is not run as part of regular build.
 build-images:
@@ -57,10 +63,10 @@ install: build
 	dh_installdirs
 	
 	debian/rules build-images
-	mkdir -p $(CURDIR)/debian/tmp/opt/elbe/initrd/
-	cp $(INITRD_NET) $(CURDIR)/debian/tmp/opt/elbe/initrd/initrd.gz
-	cp $(INITRD_CD) $(CURDIR)/debian/tmp/opt/elbe/initrd/initrd-cdrom.gz
-	cp $(KERNEL) $(CURDIR)/debian/tmp/opt/elbe/initrd/vmlinuz
+	mkdir -p $(CURDIR)/debian/testrd/opt/elbe/initrd/
+	cp $(INITRD_NET) $(CURDIR)/debian/testrd/opt/elbe/initrd/initrd.gz
+	cp $(INITRD_CD) $(CURDIR)/debian/testrd/opt/elbe/initrd/initrd-cdrom.gz
+	cp $(KERNEL) $(CURDIR)/debian/testrd/opt/elbe/initrd/vmlinuz
 
 binary-arch: install  
 	dh_testdir
