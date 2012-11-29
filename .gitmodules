@@ -1,0 +1,3 @@
+[submodule "debian-installer"]
+	path = debian-installer
+	url = lxcvs:people/torbenh/debian-installer
