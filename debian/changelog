@@ -1,3 +1,9 @@
+testrd (0.6) stable; urgency=low
+
+  * Fix missing scsi controller modules for arm cdrom
+
+ -- Torben Hohn <torbenh@linutronix.de>  Thu, 10 Jan 2013 17:21:15 +0000
+
 testrd (0.5) stable; urgency=low
 
   * Initial Debian Packaging
