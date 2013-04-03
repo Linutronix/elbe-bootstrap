@@ -1,3 +1,9 @@
+testrd (0.7) unstable; urgency=low
+
+  * more fixes for armel wheezy including virtio etc.
+
+ -- Torben Hohn <torbenh@localhost.localdomain>  Wed, 03 Apr 2013 15:44:39 +0200
+
 testrd (0.6) stable; urgency=low
 
   * Fix missing scsi controller modules for arm cdrom
