@@ -25,7 +25,7 @@ ifeq (${ARCH},armel)
 TARGETS = build_versatile_netboot build_versatile_cdrom
 INITRD_NET = debian-installer/build/dest/versatile/netboot/initrd.gz
 INITRD_CD = debian-installer/build/dest/versatile/cdrom/initrd.gz
-KERNEL = debian-installer/build/dest/versatile/netboot/vmlinuz-2.6.32-5-versatile
+KERNEL = debian-installer/build/dest/versatile/netboot/vmlinuz-3.2.0-4-versatile
 endif
 ifeq (${ARCH},amd64)
 TARGETS = build_netboot build_cdrom_isolinux
