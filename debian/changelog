@@ -1,8 +1,15 @@
+elbe-bootstrap (0.8) unstable; urgency=low
+
+  * Rename of the package
+  * add experimental support for armhf
+
+ -- Torben Hohn <torbenh@linutronix.de>  Thu, 04 Apr 2013 16:14:56 +0200
+
 testrd (0.7) unstable; urgency=low
 
   * more fixes for armel wheezy including virtio etc.
 
- -- Torben Hohn <torbenh@localhost.localdomain>  Wed, 03 Apr 2013 15:44:39 +0200
+ -- Torben Hohn <torbenh@linutronix.de>  Wed, 03 Apr 2013 15:44:39 +0200
 
 testrd (0.6) stable; urgency=low
 

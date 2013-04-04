@@ -1,7 +1,7 @@
-Source: testrd
+Source: elbe-bootstrap
 Section: devel
 Priority: optional
-Maintainer: Torben Hoihn <torbenh@linutronix.de>
+Maintainer: Torben Hohn <torbenh@linutronix.de>
 Standards-Version: 3.8.3
 Vcs-Git: git://git.debian.org/d-i/debian-installer.git
 Vcs-Browser: http://git.debian.org/?p=d-i/debian-installer.git;a=summary
@@ -165,7 +165,7 @@ Build-Depends: debhelper (>= 7.0.0), apt, apt-utils, gnupg, debian-archive-keyri
 #	- debian-ports-archive-keyring [sh4 sparc64]
 #		Used for architectures hosted on debian-ports.org
 
-Package: testrd
+Package: elbe-bootstrap
 Architecture: any
 Description: Debian installer
  ELBE kernel and initrd Package
