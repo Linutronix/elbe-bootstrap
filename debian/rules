@@ -27,6 +27,12 @@ INITRD_NET = debian-installer/build/dest/versatile/netboot/initrd.gz
 INITRD_CD = debian-installer/build/dest/versatile/cdrom/initrd.gz
 KERNEL = debian-installer/build/dest/versatile/netboot/vmlinuz-3.2.0-4-versatile
 endif
+ifeq (${ARCH},armhf)
+TARGETS = build_versatilev7_netboot build_versatilev7_cdrom
+INITRD_NET = debian-installer/build/dest/versatilev7/netboot/initrd.gz
+INITRD_CD = debian-installer/build/dest/versatilev7/cdrom/initrd.gz
+KERNEL = debian-installer/build/dest/versatilev7/netboot/vmlinuz-3.2.0-4-versatilev7
+endif
 ifeq (${ARCH},amd64)
 TARGETS = build_netboot build_cdrom_isolinux
 INITRD_NET = debian-installer/build/dest/netboot/debian-installer/amd64/initrd.gz
