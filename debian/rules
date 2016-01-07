@@ -69,10 +69,10 @@ install: build
 	dh_installdirs
 	
 	debian/rules build-images
-	mkdir -p $(CURDIR)/debian/elbe-bootstrap/opt/elbe/initrd/
-	cp $(INITRD_NET) $(CURDIR)/debian/elbe-bootstrap/opt/elbe/initrd/initrd.gz
-	cp $(INITRD_CD) $(CURDIR)/debian/elbe-bootstrap/opt/elbe/initrd/initrd-cdrom.gz
-	cp $(KERNEL) $(CURDIR)/debian/elbe-bootstrap/opt/elbe/initrd/vmlinuz
+	mkdir -p $(CURDIR)/debian/elbe-bootstrap/var/lib/elbe/initrd/
+	cp $(INITRD_NET) $(CURDIR)/debian/elbe-bootstrap/var/lib/elbe/initrd/initrd.gz
+	cp $(INITRD_CD) $(CURDIR)/debian/elbe-bootstrap/var/lib/elbe/initrd/initrd-cdrom.gz
+	cp $(KERNEL) $(CURDIR)/debian/elbe-bootstrap/var/lib/elbe/initrd/vmlinuz
 
 binary-arch: install  
 	dh_testdir

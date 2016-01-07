@@ -1,3 +1,3 @@
 [submodule "debian-installer"]
 	path = debian-installer
-	url = lxcvs:people/torbenh/debian-installer
+	url = git://anonscm.debian.org/d-i/debian-installer.git

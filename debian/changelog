@@ -1,3 +1,15 @@
+elbe-bootstrap (1.0) unstable; urgency=low
+
+  * move install destination from /opt/elbe to /var/lib/elbe
+
+ -- Manuel Traut <manut@linutronix.de>  Mon, 12 May 2014 18:11:39 +0200
+
+elbe-bootstrap (0.9) unstable; urgency=low
+
+  * Some improvements to armhf versatilev7
+
+ -- Torben Hohn <torbenh@linutronix.de>  Fri, 05 Apr 2013 16:13:09 +0200
+
 elbe-bootstrap (0.8) unstable; urgency=low
 
   * Rename of the package
