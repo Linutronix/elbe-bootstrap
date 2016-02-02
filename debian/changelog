@@ -1,3 +1,10 @@
+elbe-bootstrap (20150422+deb8u3) unstable; urgency=medium
+
+  * update to jessie
+  * change versioning to reflect the used debian-installer
+
+ -- Benedikt Spranger <b.spranger@linutronix.de>  Tue, 02 Feb 2016 15:06:36 +0100
+
 elbe-bootstrap (1.0) unstable; urgency=low
 
   * move install destination from /opt/elbe to /var/lib/elbe
