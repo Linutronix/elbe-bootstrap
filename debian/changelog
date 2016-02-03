@@ -1,3 +1,11 @@
+elbe-bootstrap (1.0-sid) sid; urgency=medium
+
+  * update to sid
+  * update debian-installer
+  * change versioning
+
+ -- Benedikt Spranger <b.spranger@linutronix.de>  Wed, 03 Feb 2016 15:13:08 +0100
+
 elbe-bootstrap (0.8) unstable; urgency=low
 
   * Rename of the package
