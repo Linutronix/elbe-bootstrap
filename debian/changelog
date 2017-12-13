@@ -1,3 +1,9 @@
+elbe-bootstrap (20150422+deb8u5) jessie; urgency=medium
+
+  * rebuild to use newer kernel version
+
+ -- Manuel Traut <manut@linutronix.de>  Wed, 13 Dec 2017 06:38:37 +0100
+
 elbe-bootstrap (20150422+deb8u4) jessie; urgency=medium
 
   * Non-maintainer upload.
